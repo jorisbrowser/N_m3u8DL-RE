@@ -112,6 +112,9 @@ internal static partial class CommandInvoker
     private static readonly Option<StreamFilter?> DropAudioFilter = new(["-da", "--drop-audio"], description: ResString.cmd_dropAudio, parseArgument: ParseStreamFilter) { ArgumentHelpName = "OPTIONS" };
     private static readonly Option<StreamFilter?> DropSubtitleFilter = new(["-ds", "--drop-subtitle"], description: ResString.cmd_dropSubtitle, parseArgument: ParseStreamFilter) { ArgumentHelpName = "OPTIONS" };
 
+    private static readonly Option<int> PlaylistRefreshDelay = new(["--refresh-playlist-retry-delay"], description: ResString.playlistRefreshDelay, getDefaultValue: () => 1000) { ArgumentHelpName = "NUM" };
+    private static readonly Option<int> PlaylistRefreshCount = new(["--refresh-playlist-retry-count"], description: ResString.PlaylistRefreshCount, getDefaultValue: () => 5) { ArgumentHelpName = "NUM" };
+
     /// <summary>
     /// 解析下载速度限制
     /// </summary>
@@ -583,6 +586,8 @@ internal static partial class CommandInvoker
                 AllowHlsMultiExtMap = bindingContext.ParseResult.GetValueForOption(AllowHlsMultiExtMap),
                 AdKeywords = bindingContext.ParseResult.GetValueForOption(AdKeywords),
                 MaxSpeed = bindingContext.ParseResult.GetValueForOption(MaxSpeed),
+                PlaylistRefreshDelay = bindingContext.ParseResult.GetValueForOption(PlaylistRefreshDelay),
+                PlaylistRefreshCount = bindingContext.ParseResult.GetValueForOption(PlaylistRefreshCount)
             };
 
             if (bindingContext.ParseResult.HasOption(CustomHLSMethod)) option.CustomHLSMethod = bindingContext.ParseResult.GetValueForOption(CustomHLSMethod);
@@ -646,7 +651,7 @@ internal static partial class CommandInvoker
             MaxSpeed,
             MuxAfterDone,
             CustomHLSMethod, CustomHLSKey, CustomHLSIv, UseSystemProxy, CustomProxy, CustomRange, TaskStartAt,
-            LivePerformAsVod, LiveRealTimeMerge, LiveKeepSegments, LivePipeMux, LiveFixVttByAudio, LiveRecordLimit, LiveWaitTime, LiveTakeCount,
+            LivePerformAsVod, LiveRealTimeMerge, LiveKeepSegments, LivePipeMux, LiveFixVttByAudio, LiveRecordLimit, LiveWaitTime, LiveTakeCount, PlaylistRefreshDelay, PlaylistRefreshCount,
             MuxImports, VideoFilter, AudioFilter, SubtitleFilter, DropVideoFilter, DropAudioFilter, DropSubtitleFilter, AdKeywords, DisableUpdateCheck, AllowHlsMultiExtMap, MoreHelp
         };
 

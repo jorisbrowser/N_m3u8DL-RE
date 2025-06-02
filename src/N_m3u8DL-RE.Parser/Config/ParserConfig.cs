@@ -12,7 +12,7 @@ public class ParserConfig
     public string OriginalUrl { get; set; } = string.Empty;
 
     public string BaseUrl { get; set; } = string.Empty;
-    
+
     public Dictionary<string, string> CustomParserArgs { get; } = new();
 
     public Dictionary<string, string> Headers { get; init; } = new();
@@ -66,4 +66,8 @@ public class ParserConfig
     /// KEY重试次数
     /// </summary>
     public int KeyRetryCount { get; set; } = 3;
+
+    public int PlaylistRefreshDelay { get; set; } = 1000;
+    public int PlaylistRefreshCount { get; set; } = 5;
+    
 }

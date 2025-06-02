@@ -970,6 +970,18 @@ internal static class StaticText
             zhTW: "沒有找到需要下載的流",
             enUS: "No stream found to download"
         ),
+        ["playlistRefreshDelay"] = new TextContainer
+        (
+            zhCN: "Dunno.",
+            zhTW: "Dunno.",
+            enUS: "The Delay in ms between each try to refresh the Playlist"
+        ),
+        ["playlistRefreshCount"] = new TextContainer
+        (
+            zhCN: "Dunno.",
+            zhTW: "Dunno.",
+            enUS: "The Amount of times to try refreshing the Playlist"
+        ),
 
     };
 }

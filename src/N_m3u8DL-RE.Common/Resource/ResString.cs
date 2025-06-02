@@ -139,6 +139,10 @@ public static class ResString
     public static string newVersionFound => GetText("newVersionFound");
     public static string processImageSub => GetText("processImageSub");
 
+    public static string playlistRefreshDelay => GetText("playlistRefreshDelay");
+
+    public static string PlaylistRefreshCount  => GetText("playlistRefreshCount");
+
     private static string GetText(string key)
     {
         if (!StaticText.LANG_DIC.TryGetValue(key, out var textObj))

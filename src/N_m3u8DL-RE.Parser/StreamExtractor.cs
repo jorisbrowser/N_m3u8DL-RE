@@ -134,7 +134,7 @@ public class StreamExtractor
             {
                 await extractor.RefreshPlayListAsync(streamSpecs);
                 return true;
-            }, retryDelayMilliseconds: 1000, maxRetries: 5);
+            }, retryDelayMilliseconds: parserConfig.PlaylistRefreshDelay, maxRetries: parserConfig.PlaylistRefreshCount);
         }
         finally
         {
